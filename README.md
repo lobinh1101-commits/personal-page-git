@@ -1,20 +1,23 @@
-# Bài Tập CSĐL: Quản Lý Bán Hàng (QuanLyBanHang)
+# Bài Thực Hành SQL: Thêm Dữ Liệu Vào Cơ Sở Dữ Liệu Quản Lý Sinh Viên
 
-## Mô tả
-Cơ sở dữ liệu Quản Lý Bán Hàng gồm 4 bảng:
-- **Customer**: Lưu trữ thông tin khách hàng.
-- **Order**: Lưu trữ thông tin đơn hàng/hóa đơn.
-- **Product**: Lưu trữ danh sách các sản phẩm/mặt hàng.
-- **OrderDetail**: Lưu trữ chi tiết đơn hàng (quan hệ nhiều - nhiều giữa Order và Product).
+## Mục tiêu
+- Sử dụng thành thạo câu lệnh `INSERT INTO` để thêm bản ghi mới vào các bảng trong MySQL.
+- Hiểu cách thêm từng dòng hoặc nhiều dòng cùng lúc, cũng như cách bỏ qua các cột chấp nhận giá trị `NULL`.
 
-## Các ràng buộc được sử dụng (Constraints)
-- `PRIMARY KEY`: Khóa chính cho các bảng (`cID`, `oID`, `pID`, và khóa chính tổng hợp `(oID, pID)` trong OrderDetail).
-- `FOREIGN KEY`: Khóa ngoại liên kết giữa các bảng (`Order.cID` -> `Customer.cID`, `OrderDetail.oID` -> `Order.oID`, `OrderDetail.pID` -> `Product.pID`).
-- `CHECK`: Kiểm tra tuổi (`cAge > 0`), giá tiền (`pPrice >= 0`), số lượng mua (`odQTY > 0`).
-- `NOT NULL`: Đảm bảo các trường dữ liệu quan trọng không bị rỗng.
-- `AUTO_INCREMENT`: Tự động tăng khóa chính.
+## Nội dung bài tập
+Tệp `QuanLySinhVien_Data.sql` thực hiện các thao tác:
+1. Tạo cơ sở dữ liệu `QuanLySinhVien` và tạo các bảng `Class`, `Student`, `Subject`, `Mark`.
+2. Thêm dữ liệu lớp học vào bảng `Class`.
+3. Thêm học viên vào bảng `Student` (bao gồm trường hợp học viên không nhập số điện thoại).
+4. Thêm các môn học vào bảng `Subject` bằng cú pháp chèn nhiều dòng (Multi-row Insert).
+5. Thêm bảng điểm vào bảng `Mark`.
 
 ## Hướng dẫn sử dụng
-1. Mở MySQL Workbench hoặc phpMyAdmin.
-2. Mở file `QuanLyBanHang.sql` và chạy toàn bộ câu lệnh.
-3. Kiểm tra các bảng và dữ liệu đã khởi tạo thành công.
+1. Mở MySQL Workbench, phpMyAdmin hoặc terminal MySQL.
+2. Mở file `QuanLySinhVien_Data.sql` và tiến hành thực thi toàn bộ đoạn mã (Execute/Run).
+3. Kiểm tra kết quả hiển thị ở các bảng dữ liệu qua các câu lệnh `SELECT`.
+
+## Đưa lên GitHub & Nộp bài
+1. Tải file ZIP này về và giải nén.
+2. Tạo/Mở repository trên GitHub và đẩy các file mã nguồn lên.
+3. Sao chép liên kết repository trên GitHub và dán vào phần nộp bài.
